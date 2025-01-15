@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog id="CreateSubaccountDialog" title="Create Subaccount/dir" draggable="true" resizable="true" class="sapUiResponsivePadding">
+        <content>
+            <VBox id="_IDGenVBox2">
+                <form:SimpleForm id="_IDGenSimpleForm1" editable="true" columnsXL="2" columnsM="2" columnsL="2">
+                    <!-- <core:Title id="_IDGenTitle2"></core:Title> -->
+                    <RadioButtonGroup id="_IDGenRadioButtonGroup" columns="2" select="onAccountTypeChange">
+                        <buttons>
+                            <RadioButton id="_IDGenRadioButton1" text="Sub Account" selected="true"></RadioButton>
+                            <RadioButton id="_IDGenRadioButton2" text="Directory"></RadioButton>
+                        </buttons>
+                    </RadioButtonGroup>
+                    <!-- <core:Title id="_IDGenTitle2"></core:Title> -->
+
+                    <VBox id="subaccountForm">
+                        <Label id="_IDGenLabel5" text="Display Name" required="true"/>
+                        <Input id="_IDGenInput1" />
+
+                        <Label id="_IDGenLabel6" text="Description"></Label>
+                        <Input id="_IDGenInput2" />
+                        
+                        <Label id="_IDGenLabel7" text="Region" required="true"></Label>
+                        <ComboBox id="_IDGenComboBox3" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}}" showSecondaryValues="true">
+                            <core:Item id="_IDGenItem2" key="{regionModel>Region}" text="{regionModel>RegionName}"></core:Item>
+                        </ComboBox>
+
+                        <Label id="_IDGenLabel11" text="Parent" required="true"></Label>
+                        <Input id="_IDGenInput3" showValueHelp="true" valueHelpRequest="onParentTreeTable" placeholder="Select Parent"></Input>
+
+                        <Label id="_IDGenLabel16" text="subdomain" required="true"/>
+                        <Input id="_IDGenInput6" />
+
+
+                    </VBox>
+
+                    <!-- directory form  -->
+
+                    <VBox id="directoryForm" visible="false">
+
+                        <Label id="_IDGenLabel9" text="Directory Display Name" required="true"/>
+                        <Input id="_IDGenInput" />
+
+                        <Label id="_IDGenLabel10" text="Directory Description" />
+                        <Input id="_IDGenInput4" />
+
+                        <Label id="_IDGenLabel12" text="Parent" required="true"></Label>
+                        <Input id="_IDGenInput5" showValueHelp="true" valueHelpRequest="onParentTreeTable" placeholder="Select Parent"></Input>
+
+                    </VBox>
+                </form:SimpleForm>
+
+            </VBox>
+        </content>
+        <buttons>
+            <Button id="Buttonddqq" text="Submit" type="Emphasized" press="onSubmitSubaccount" icon="sap-icon://save" />
+            <Button id="Buttoeenddd" text="Close" press="onCloseCreateDialog" icon="sap-icon://decline"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog id="parentTreeDialog" title="Select Parent" draggable="true" resizable="true" class="sapUiResponsivePadding" afterClose="onDialogClose">
+        <content>
+
+            <Tree id="parentTreeTable" items="{path: 'subaccountsModel>/'}" >
+                <StandardTreeItem id="_IDGenStandardTreeItem" title="{subaccountsModel>displayName}" press="onParentSelected"  type="{path:'subaccountsModel>', formatter: '.formateParentSelected'}"/>
+            </Tree>
+
+        </content>
+        <buttons>
+            <!-- <Button id="_IDGenButton3" text="Select" press="onSelectParent"></Button> -->
+            <Button id="_IDGenButton4" text="Cancel" press="onParentDialogCancel"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

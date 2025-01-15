@@ -1,0 +1,244 @@
+<mvc:View xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table" controllerName="com.hcl.accountsoperations.controller.Create"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="_IDGenPage">
+        <content>
+            <VBox id="_IDGenVBox">
+                <Panel id="_IDGenPanel1" expandable="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar id="_IDGenOverflowToolbar1">
+                            <core:Icon id="_IDGenIcon1" src="sap-icon://folder-full" tooltip="Directoty"></core:Icon>
+                            <Title id="_IDGenTitle1" text="{BTPAccountsModel>/accounts/0/dir}"></Title>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer"></ToolbarSpacer>
+                            <CheckBox id="_IDGenCheckBox" select="onApplicationsSelectAll"></CheckBox>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <Table id="_IDGenTable" items="{path: 'BTPAccountsModel>/accounts/0/subaccounts/'}" mode="MultiSelect" selectionChange="onSelectionChange">
+                        <columns>
+                            <Column id="_IDGenColumn">
+                                <Text id="_IDGenText5" text="name"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn7">
+                                <Text id="_IDGenText6" text="Description"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn8">
+                                <Text id="_IDGenText13" text="region"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn9">
+                                <Text id="_IDGenText15" text="subdomain"/>
+                            </Column>
+
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem">
+                                <cells>
+                                    <Input id="_IDGenInput14" value="{BTPAccountsModel>name}" liveChange="onSubaccountNameChange"></Input>
+                                    <Input id="_IDGenInput15" value="{BTPAccountsModel>Description}"></Input>
+                                    <ComboBox id="_IDGenComboBox2" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}, templateShareable: true}" showSecondaryValues="true" selectedKey="{BTPAccountsModel>Region}">
+                                        <core:Item id="_IDGenItem1" key="{regionModel>Region}" text="{regionModel>RegionName}"></core:Item>
+                                    </ComboBox>
+                                    <Input id="_IDGenInput16" value="{BTPAccountsModel>subdomain}"></Input>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+                <Panel id="_IDGenPanel2" expandable="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar id="_IDGenOverflowToolbar3">
+                            <core:Icon id="_IDGenIcon2" src="sap-icon://folder-full" tooltip="Directoty"></core:Icon>
+                            <Title id="_IDGenTitle4" text="{BTPAccountsModel>/accounts/1/dir}"></Title>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer1"></ToolbarSpacer>
+                            <CheckBox id="_IDGenCheckBox2" select="onIntegrationsSelectAll"></CheckBox>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <Table id="_IDGenTable1" items="{path: 'BTPAccountsModel>/accounts/1/subaccounts/'}" mode="MultiSelect" selectionChange="onSelectionChange">
+                        <columns>
+                            <Column id="_IDGenColumn6">
+                                <Text id="_IDGenText7" text="name"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn10">
+                                <Text id="_IDGenText8" text="Description"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn11">
+                                <Text id="_IDGenText9" text="region"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn12">
+                                <Text id="_IDGenText11" text="subdomain"/>
+                            </Column>
+
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem1">
+                                <cells>
+                                    <Input id="_IDGenInput11" value="{BTPAccountsModel>name}" liveChange="onSubaccountNameChange"></Input>
+                                    <Input id="_IDGenInput12" value="{BTPAccountsModel>Description}"></Input>
+                                    <ComboBox id="_IDGenComboBox1" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}, templateShareable: true}" showSecondaryValues="true" selectedKey="{BTPAccountsModel>Region}">
+                                        <core:Item id="_IDGenItem4" key="{regionModel>Region}" text="{regionModel>RegionName}"></core:Item>
+                                    </ComboBox>
+                                    <Input id="_IDGenInput13" value="{BTPAccountsModel>subdomain}"></Input>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+                <Panel id="_IDGenPanel3" expandable="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar id="_IDGenOverflowToolbar4">
+                            <core:Icon id="_IDGenIcon3" src="sap-icon://folder-full" tooltip="Directoty"></core:Icon>
+                            <Title id="_IDGenTitle5" text="{BTPAccountsModel>/accounts/2/dir}"></Title>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer2"></ToolbarSpacer>
+                            <CheckBox id="_IDGenCheckBox3" select="onAutomationsSelectAll"></CheckBox>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <Table id="_IDGenTable2" items="{path: 'BTPAccountsModel>/accounts/2/subaccounts/'}" mode="MultiSelect" selectionChange="onSelectionChange">
+                        <columns>
+                            <Column id="_IDGenColumn13">
+                                <Text id="_IDGenText16" text="name"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn14">
+                                <Text id="_IDGenText20" text="Description"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn15">
+                                <Text id="_IDGenText21" text="region"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn16">
+                                <Text id="_IDGenText22" text="subdomain"/>
+                            </Column>
+
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem2">
+                                <cells>
+                                    <Input id="_IDGenInput17" value="{BTPAccountsModel>name}" liveChange="onSubaccountNameChange"></Input>
+                                    <Input id="_IDGenInput18" value="{BTPAccountsModel>Description}"></Input>
+                                    <ComboBox id="_IDGenComboBox4" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}, templateShareable: true}" showSecondaryValues="true" selectedKey="{BTPAccountsModel>Region}">
+                                        <core:Item id="_IDGenItem3" key="{regionModel>Region}" text="{regionModel>RegionName}"></core:Item>
+                                    </ComboBox>
+                                    <Input id="_IDGenInput19" value="{BTPAccountsModel>subdomain}"></Input>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+                <Panel id="_IDGenPanel4" expandable="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar id="_IDGenOverflowToolbar5">
+                            <core:Icon id="_IDGenIcon4" src="sap-icon://folder-full" tooltip="Directoty"></core:Icon>
+                            <Title id="_IDGenTitle6" text="{BTPAccountsModel>/accounts/3/dir}"></Title>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer3"></ToolbarSpacer>
+                            <CheckBox id="_IDGenCheckBox4" select="onDataSelectAll"></CheckBox>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <Table id="_IDGenTable3" items="{path: 'BTPAccountsModel>/accounts/3/subaccounts/'}" mode="MultiSelect" selectionChange="onSelectionChange">
+                        <columns>
+                            <Column id="_IDGenColumn17">
+                                <Text id="_IDGenText23" text="name"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn18">
+                                <Text id="_IDGenText24" text="Description"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn19">
+                                <Text id="_IDGenText25" text="region"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn20">
+                                <Text id="_IDGenText26" text="subdomain"/>
+                            </Column>
+
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem3">
+                                <cells>
+                                    <Input id="_IDGenInput20" value="{BTPAccountsModel>name}" liveChange="onSubaccountNameChange"></Input>
+                                    <Input id="_IDGenInput21" value="{BTPAccountsModel>Description}"></Input>
+                                    <ComboBox id="_IDGenComboBox5" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}, templateShareable: true}" showSecondaryValues="true" selectedKey="{BTPAccountsModel>Region}">
+                                        <core:Item id="_IDGenItem5" key="{regionModel>Region}" text="{regionModel>RegionName}"></core:Item>
+                                    </ComboBox>
+                                    <Input id="_IDGenInput22" value="{BTPAccountsModel>subdomain}"></Input>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+                <Panel id="_IDGenPanel5" expandable="true" width="auto" class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar id="_IDGenOverflowToolbar6">
+                            <core:Icon id="_IDGenIcon5" src="sap-icon://folder-full" tooltip="Directoty"></core:Icon>
+                            <Title id="_IDGenTitle7" text="{BTPAccountsModel>/accounts/4/dir}"></Title>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer4"></ToolbarSpacer>
+                            <CheckBox id="_IDGenCheckBox5" select="onAiSelectAll"></CheckBox>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <Table id="_IDGenTable4" items="{path: 'BTPAccountsModel>/accounts/4/subaccounts/'}" mode="MultiSelect" selectionChange="onSelectionChange">
+                        <columns>
+                            <Column id="_IDGenColumn21">
+                                <Text id="_IDGenText27" text="name"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn22">
+                                <Text id="_IDGenText28" text="Description"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn23">
+                                <Text id="_IDGenText29" text="region"/>
+                            </Column>
+
+                            <Column id="_IDGenColumn24">
+                                <Text id="_IDGenText30" text="subdomain"/>
+                            </Column>
+
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem4">
+                                <cells>
+                                    <Input id="_IDGenInput23" value="{BTPAccountsModel>name}" liveChange="onSubaccountNameChange"></Input>
+                                    <Input id="_IDGenInput24" value="{BTPAccountsModel>Description}"></Input>
+                                    <ComboBox id="_IDGenComboBox6" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}, templateShareable: true}" showSecondaryValues="true" selectedKey="{BTPAccountsModel>Region}">
+                                        <core:Item id="_IDGenItem6" key="{regionModel>Region}" text="{regionModel>RegionName}"></core:Item>
+                                    </ComboBox>
+                                    <Input id="_IDGenInput25" value="{BTPAccountsModel>subdomain}"></Input>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+
+                </Panel>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar id="_IDGenOverflowToolbar2">
+                <ToolbarSpacer id="_IDGenToolbarSeparator"/>
+                <Button id="_IDGenButton1" type="Accept" text="Submit" press="onSubmit"></Button>
+                <Button id="_IDGenButton2" type="Reject" text="Cancel" press="onCancel"></Button>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

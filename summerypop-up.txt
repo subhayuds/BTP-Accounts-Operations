@@ -1,0 +1,197 @@
+onSubmit: function () {
+    const panels = [
+        { checkbox: "_IDGenCheckBox", directoryName: "Applications", tableId: "_IDGenTable" },
+        { checkbox: "_IDGenCheckBox2", directoryName: "Integrations", tableId: "_IDGenTable1" },
+        { checkbox: "_IDGenCheckBox3", directoryName: "Automations", tableId: "_IDGenTable2" },
+        { checkbox: "_IDGenCheckBox4", directoryName: "Data & Analytics", tableId: "_IDGenTable3" },
+        { checkbox: "_IDGenCheckBox5", directoryName: "AI", tableId: "_IDGenTable4" },
+    ];
+
+    let selectedItems = [];
+    panels.forEach((panel) => {
+        const checkbox = this.getView().byId(panel.checkbox).getSelected();
+        if (checkbox) {
+            const selectedRows = this.collectSelectedRows(panel.tableId);
+            if (selectedRows.length > 0) {
+                selectedItems.push({
+                    directoryName: panel.directoryName,
+                    rows: selectedRows,
+                });
+            }
+        }
+    });
+
+    if (selectedItems.length === 0) {
+        MessageBox.warning("No directories or subaccounts selected.");
+        return;
+    }
+
+    // Initialize and open the dialog
+    const oDialog = this.createLoadingDialog(selectedItems);
+    oDialog.open();
+
+    // Start directory and subaccount creation
+    this.createDirectoriesAndSubaccounts(selectedItems, oDialog);
+},
+
+// Moved the dialog initialization to a separate function
+createLoadingDialog: function (selectedItems) {
+    return new sap.m.Dialog({
+        title: "Creating Directories and Subaccounts",
+        content: new sap.m.VBox({
+            items: selectedItems.map((item) => {
+                const rowsItems = item.rows.map(row => {
+                    return new sap.m.HBox({
+                        items: [
+                            new sap.ui.core.Icon({ src: "sap-icon://pending", color: "blue", size: "1.5rem", id: `pending-${row.name}` }),
+                            new sap.m.Text({ text: row.name })
+                        ]
+                    });
+                });
+
+                return new sap.m.VBox({
+                    items: [
+                        new sap.m.HBox({
+                            items: [
+                                new sap.ui.core.Icon({ src: "sap-icon://pending", color: "blue", size: "1.5rem", id: `pending-${item.directoryName}` }),
+                                new sap.m.Text({ text: `Directory: ${item.directoryName}` })
+                            ]
+                        }),
+                        ...rowsItems // Add rows for subaccounts under each directory
+                    ]
+                });
+            })
+        }),
+        beginButton: new sap.m.Button({
+            text: "Close",
+            enabled: false, // Only enable when all tasks are done
+            press: function () {
+                this.close();
+            }
+        })
+    });
+},
+
+createDirectoriesAndSubaccounts: function (selectedItems, oDialog) {
+    selectedItems.forEach((item) => {
+        const directoryName = item.directoryName;
+        const rows = item.rows;
+
+        this.createDirectoryOrHandleConflict(directoryName, rows, oDialog);
+    });
+},
+
+createDirectoryOrHandleConflict: function (directoryName, selectedRows, oDialog) {
+    const prefix = sap.ui.require.toUrl(this.getOwnerComponent().getManifestEntry('/sap.app/id').replaceAll('.', '/')) + "/";
+    const apiUrl = `${prefix}accounts/v1/directories/`;
+
+    const requestData = { "displayName": directoryName };
+
+    $.ajax({
+        url: apiUrl,
+        async: false,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(requestData),
+        success: function (response) {
+            MessageToast.show("Directory created successfully!");
+
+            selectedRows.forEach((row) => row.parentGUID = response.guid); // GUID from success response
+            this.updateStatusInDialog(directoryName, selectedRows, oDialog, true); // Update UI on success
+            this.createSubaccounts(selectedRows, oDialog);
+        }.bind(this),
+        error: function (xhr) {
+            if (xhr.status === 409) {
+                this.retrieveDirectoryGUIDFromGlobalAccount(directoryName, selectedRows, oDialog);
+            } else {
+                this.updateStatusInDialog(directoryName, selectedRows, oDialog, false); // Mark as error
+                MessageBox.error("Failed to create directory. Error: " + xhr.responseJSON.message);
+            }
+        }.bind(this),
+    });
+},
+
+retrieveDirectoryGUIDFromGlobalAccount: function (directoryName, selectedRows, oDialog) {
+    const prefix = sap.ui.require.toUrl(this.getOwnerComponent().getManifestEntry('/sap.app/id').replaceAll('.', '/')) + "/";
+    const globalAccountUrl = `${prefix}accounts/v1/globalAccount?expand=true`;
+
+    $.ajax({
+        url: globalAccountUrl,
+        async: false,
+        type: "GET",
+        success: function (response) {
+            const directories = response.children || [];
+            let directoryGUID = null;
+
+            directories.some((directory) => {
+                if (directory.displayName === directoryName && directory.directoryType === "FOLDER") {
+                    directoryGUID = directory.guid;
+                    return true;
+                }
+                return false;
+            });
+
+            if (directoryGUID) {
+                selectedRows.forEach((row) => row.parentGUID = directoryGUID);
+                this.updateStatusInDialog(directoryName, selectedRows, oDialog, true); // Update UI
+                this.createSubaccounts(selectedRows, oDialog);
+            } else {
+                MessageBox.error(`Directory "${directoryName}" already exists, but its GUID could not be found.`);
+                this.updateStatusInDialog(directoryName, selectedRows, oDialog, false); // Mark as error
+            }
+        }.bind(this),
+        error: function (xhr) {
+            this.updateStatusInDialog(directoryName, selectedRows, oDialog, false); // Mark as error
+            MessageBox.error("Failed to retrieve directory GUID. Error: " + xhr.responseJSON.message);
+        }.bind(this),
+    });
+},
+
+createSubaccounts: function (requestData, oDialog) {
+    const prefix = sap.ui.require.toUrl(this.getOwnerComponent().getManifestEntry('/sap.app/id').replaceAll('.', '/')) + "/";
+    const apiUrl = `${prefix}accounts/v1/subaccounts`;
+
+    requestData.forEach((data) => {
+        const payload = {
+            displayName: data.name,
+            description: data.Description,
+            region: data.Region,
+            parentGUID: data.parentGUID,
+            subdomain: data.subdomain,
+        };
+
+        $.ajax({
+            url: apiUrl,
+            async: false,
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(payload),
+            success: function () {
+                MessageToast.show("Subaccount created successfully!");
+                this.updateStatusInDialog(data.name, [], oDialog, true); // Update UI on success
+            }.bind(this),
+            error: function (xhr) {
+                this.updateStatusInDialog(data.name, [], oDialog, false); // Mark as error
+                MessageBox.error("Failed to create subaccount. Error: " + xhr.responseJSON.message);
+            }.bind(this),
+        });
+    });
+},
+
+updateStatusInDialog: function (name, rows, oDialog, success) {
+    const iconId = `pending-${name}`;
+    const icon = sap.ui.getCore().byId(iconId);
+    if (icon) {
+        icon.setSrc(success ? "sap-icon://accept" : "sap-icon://decline");
+        icon.setColor(success ? "green" : "red");
+    }
+
+    const allTasksComplete = oDialog.getContent()[0].getItems().every(item => {
+        const icons = item.getItems().map(innerItem => innerItem.getItems()[0]); // Get all icons
+        return icons.every(icon => icon.getSrc() === "sap-icon://accept");
+    });
+
+    if (allTasksComplete) {
+        oDialog.getBeginButton().setEnabled(true); // Enable the close button
+    }
+}

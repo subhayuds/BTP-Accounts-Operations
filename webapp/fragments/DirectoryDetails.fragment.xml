@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog id="DirectoryDetailsDialog" title="Directory Details" draggable="true" resizable="true">
+        <content>
+            <form:SimpleForm id="_IDGenSimpleForm" labelSpanL="12" labelSpanM="12" labelSpanS="12" columnsL="2" columnsM="2" columnsXL="2" editable="true">
+                <core:Title id="_IDGenTitle2"></core:Title>
+
+                <Label id="_IDGenLabel8" text="Display Name" required="true"/>
+                <Input editable="{directoryDialogModel>/editFlag}" id="_IDGenInput8" value="{directoryDialogModel>/displayName}" />
+
+                <Label id="_IDGenLabel18" text="Created Date" />
+                <DatePicker editable="false" id="_IDGenDatePicker" value="{path:'directoryDialogModel>/createdDate', formatter:'.formateDate'}" />
+
+                <Label id="_IDGenLabel19" text="Created By" />
+                <Input editable="false" id="_IDGenInput7" value="{directoryDialogModel>/createdBy}"/>
+
+
+            </form:SimpleForm>
+        </content>
+        <buttons>
+            <Button id="_IDGenButton6" text="Edit" press="ondirectoryEditDialog" icon="sap-icon://edit" visible="{=!${directoryDialogModel>/editFlag}}"/>
+            <Button id="_IDGenButton7" text="Save" type="Emphasized" press="ondirectorySaveDialog" icon="sap-icon://save" visible="{directoryDialogModel>/editFlag}"/>
+            <Button id="_IDGenButton8" text="Close" press="ondirectoryCloseDialog" icon="sap-icon://decline"/>
+            
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

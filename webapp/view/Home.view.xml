@@ -1,0 +1,102 @@
+<mvc:View controllerName="com.hcl.accountsoperations.controller.Home"
+id="HomeView"
+   xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+   xmlns="sap.ui.table"
+   xmlns:m="sap.m"
+   xmlns:u="sap.ui.unified"
+   xmlns:fb="sap.ui.comp.filterbar"
+   xmlns:core="sap.ui.core">
+
+   <m:Page id="Page1" showHeader="false" enableScrolling="false">
+      <m:content>
+         <!-- Filter bar -->
+         <fb:FilterBar id="FilterBar" search="onFilter" class="sapUiSmallMarginBottom" useToolbar="false">
+            <fb:filterGroupItems>
+               <fb:FilterGroupItem id="FilterGroupItem1" label="{i18n>DisplayNameFilter}" visibleInFilterBar="true" groupName="Group1" name="displayName">
+                  <fb:control>
+                     <m:Input id="Input1"></m:Input>
+                  </fb:control>
+               </fb:FilterGroupItem>
+
+               <fb:FilterGroupItem id="FilterGroupItem2" label="{i18n>RegionFilter}" visibleInFilterBar="true" groupName="Group1" name="region">
+                  <fb:control>
+                     <!-- <m:MultiComboBox id="_IDGenMultiComboBox" items="{regionModel>/}"> -->
+                     <!-- <m:MultiComboBox id="_IDGenMultiComboBox" items="{ path: 'regionModel>/Regions', sorter: {path: 'Region' } }" showSecondaryValues="true">
+                        <core:ListItem id="_IDGenItem" key="{regionModel>Region}" text="{regionModel>RegionName}" additionalText="{regionModel>Region}"></core:ListItem>
+                     </m:MultiComboBox> -->
+                     <m:ComboBox id="_IDGenComboBox" items="{path: 'regionModel>/Regions', sorter:{path:'IaaSProvider', group: true}}" showSecondaryValues="true">
+                        <core:ListItem id="_IDGenItem" key="{regionModel>Region}" text="{regionModel>RegionName}" additionalText="{regionModel>Region}"></core:ListItem>
+                     </m:ComboBox>
+                  </fb:control>
+               </fb:FilterGroupItem>
+
+               <fb:FilterGroupItem id="FilterGroupItem3" label="{i18n>BetaEnabledFilter}" visibleInFilterBar="true" groupName="Group1" name="betaEnabled">
+                  <fb:control>
+                     <m:CheckBox id="CheckBox1"></m:CheckBox>
+                  </fb:control>
+               </fb:FilterGroupItem>
+            </fb:filterGroupItems>
+         </fb:FilterBar>
+         <!-- Tree Table -->
+         <TreeTable id="TreeTable1" selectionMode="None" enableSelectAll="true" rows="{path:'subaccountsModel>/',parameters:{arrayNames:['subaccounts', 'children'],
+         numberOfExpandedLevels:1}}" cellClick="onRowSelection">
+
+            <extension>
+               <m:OverflowToolbar id="OverflowToolbar1">
+                  <m:Title id="Title1" text="{i18n>subaccountslist}"/>
+                  <m:ToolbarSpacer id="ToolbarSeparator1"></m:ToolbarSpacer>
+                  <m:Button id="_IDGenButton3" text="Collapse all" press="onCollapseAll"/>
+                  <m:Button id="Button1" text="{i18n>CreateSubaccountButton}" press="onCreateSubaccount" icon="sap-icon://create-session" type="Emphasized"></m:Button>
+                  <m:Button id="Button2" text="Booster" press="onBoosterPress"></m:Button>
+               </m:OverflowToolbar>
+            </extension>
+            <columns>
+
+               <Column id="_IDGenColumn4">
+                  <m:Label id="_IDGenLabel3" text="{i18n>SubAccountNameColumn}"/>
+                  <template>
+
+                     <!-- <m:Text id="_IDGenText3" text="{subaccountsModel>displayName}" wrapping="false" /> -->
+                     <m:HBox id="_IDGenHBox">
+                        <core:Icon id="_IDGenIcon" src="{path: 'subaccountsModel>', formatter: '.formateIcon'}"  size="1rem" ></core:Icon>
+                        <m:Text id="_IDGenText1" text="" width="10px"></m:Text>
+                        <m:Text id="_IDGenText3" text="{subaccountsModel>displayName}" wrapping="false" />
+                     </m:HBox>
+                  </template>
+               </Column>
+
+               <Column id="_IDGenColumn1">
+                  <m:Label id="_IDGenLabel" text="{i18n>CreatedByColumn}"/>
+                  <template>
+                     <m:Text id="_IDGenText" text="{subaccountsModel>createdBy}" wrapping="false" />
+                  </template>
+               </Column>
+
+               <Column id="_IDGenColumn2">
+                  <m:Label id="_IDGenLabel1" text="{i18n>CreatedDateColumn}"/>
+                  <template>
+                     <!-- <m:Text id="_IDGenText1" text="{subaccountsModel>createdDate}" wrapping="false" /> -->
+                     <!-- <m:Text id="_IDGenText1" text="{path:'subaccountsModel>/', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-YYYY'}}" wrapping="false" /> -->
+                     <m:Text id="Text1" text="{path:'subaccountsModel>createdDate', formatter:'.formateDate' }" />
+                  </template>
+               </Column>
+
+               <Column id="_IDGenColumn3">
+                  <m:Label id="_IDGenLabel2" text="{i18n>DescriptionColumn}"/>
+                  <template>
+                     <m:Text id="_IDGenText2" text="{subaccountsModel>description}" wrapping="false" />
+                  </template>
+               </Column>
+
+               <Column id="_IDGenColumn5">
+                  <m:Label id="_IDGenLabel4" text="{i18n>RegionColumn}"/>
+                  <template>
+                     <m:Text id="_IDGenText4" text="{path:'subaccountsModel>region', formatter:'.formateregion'}" wrapping="false" />
+                  </template>
+               </Column>
+
+            </columns>
+         </TreeTable>
+      </m:content>
+   </m:Page>
+</mvc:View>

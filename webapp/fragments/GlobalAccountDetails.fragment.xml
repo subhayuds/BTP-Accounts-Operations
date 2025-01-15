@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog id="GlobalAccountDetailsDialog" title="Global Account Details" draggable="true" resizable="true">
+        <content>
+            <form:SimpleForm id="_IDGenSimpleForm3" labelSpanL="12" labelSpanM="12" labelSpanS="12" columnsL="2" columnsM="2" columnsXL="2" editable="true">
+                <core:Title id="_IDGenTitle3"></core:Title>
+
+                <Label id="_IDGenLabel23" text="Display Name" required="true"/>
+                <Input editable="{globalAccountDialogModel>/editFlag}" id="_IDGenInput9" value="{globalAccountDialogModel>/displayName}" />
+
+                <Label id="_IDGenLabel24" text="Created Date" />
+                <DatePicker editable="false" id="_IDGenDatePicker1" value="{path:'globalAccountDialogModel>/createdDate', formatter:'.formateDate'}" />
+
+                <Label id="_IDGenLabel25" text="Geo Access" />
+                <Input editable="{globalAccountDialogModel>/editFlag}" id="_IDGenInput10" value="{globalAccountDialogModel>/geoAccess}"/>
+
+                <Label id="_IDGenLabel27" text="License Type" />
+                <Input editable="{globalAccountDialogModel>/editFlag}" id="_IDGenInput26" value="{globalAccountDialogModel>/licenseType}"/>
+
+            </form:SimpleForm>
+        </content>
+        <buttons>
+            <!-- <Button id="_IDGenButton5" text="Edit" press="ondirectoryEditDialog" icon="sap-icon://edit" visible="{=!${globalAccountDialogModel>/editFlag}}"/>
+            <Button id="_IDGenButton9" text="Save" type="Emphasized" press="ondirectorySaveDialog" icon="sap-icon://save" visible="{globalAccountDialogModel>/editFlag}"/> -->
+            <Button id="_IDGenButton10" text="Close" press="onglobalAccountCloseDialog" icon="sap-icon://decline"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

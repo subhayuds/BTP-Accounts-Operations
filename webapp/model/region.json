@@ -1,0 +1,244 @@
+{
+    "Regions": [
+        {
+            "IaaSProvider": "Alibaba Cloud",
+            "Region": "cn40",
+            "RegionName": "China (Shanghai)",
+            "TechnicalKey": "cf-cn40",
+            "TechnicalKeyofIaaSProvider": "cn-shanghai",
+            "APIEndpoint": "api.cf.cn40.platform.sapcloud.cn",
+            "Domain": "cn40.platform.sapcloud.cn",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "br10",
+            "RegionName": "Brazil (São Paulo)",
+            "TechnicalKey": "cf-br10",
+            "TechnicalKeyofIaaSProvider": "sa-east-1",
+            "APIEndpoint": "api.cf.br10.hana.ondemand.com",
+            "Domain": "br10.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "jp10",
+            "RegionName": "Japan (Tokyo)",
+            "TechnicalKey": "cf-jp10",
+            "TechnicalKeyofIaaSProvider": "ap-northeast-1",
+            "APIEndpoint": "api.cf.jp10.hana.ondemand.com",
+            "Domain": "jp10.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "ap10",
+            "RegionName": "Australia (Sydney)",
+            "TechnicalKey": "cf-ap10",
+            "TechnicalKeyofIaaSProvider": "ap-southeast-2",
+            "APIEndpoint": "api.cf.ap10.hana.ondemand.com",
+            "Domain": "ap10.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "ap11",
+            "RegionName": "Asia Pacific (Singapore)",
+            "TechnicalKey": "cf-ap11",
+            "TechnicalKeyofIaaSProvider": "ap-southeast-1",
+            "APIEndpoint": "api.cf.ap11.hana.ondemand.com",
+            "Domain": "ap11.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "ap12",
+            "RegionName": "Asia Pacific (Seoul)",
+            "TechnicalKey": "cf-ap12",
+            "TechnicalKeyofIaaSProvider": "ap-northeast-2",
+            "APIEndpoint": "api.cf.ap12.hana.ondemand.com",
+            "Domain": "ap12.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "ca10",
+            "RegionName": "Canada (Montreal)",
+            "TechnicalKey": "cf-ca10",
+            "TechnicalKeyofIaaSProvider": "ca-central-1",
+            "APIEndpoint": "api.cf.ca10.hana.ondemand.com",
+            "Domain": "ca10.hana.ondemand.com",
+            "CockpitLogon": "Feature Set B"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "eu10",
+            "RegionName": "Europe (Frankfurt)",
+            "TechnicalKey": "cf-eu10",
+            "TechnicalKeyofIaaSProvider": "eu-central-1",
+            "APIEndpoint": "cf-eu10:\n              api.cf.eu10.hana.ondemand.com\n              cf-eu10-002:\n              api.cf.eu10-002.hana.ondemand.com\n              cf-eu10-003:\n              api.cf.eu10-003.hana.ondemand.com\n              cf-eu10-004:\n              api.cf.eu10-004.hana.ondemand.com",
+            "Domain": "cf-eu10:\n              eu10.hana.ondemand.com\n              cf-eu10-002:\n              eu10-002.hana.ondemand.com\n              cf-eu10-003:\n              eu10-003.hana.ondemand.com\n              cf-eu10-004:\n              eu10-004.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "eu11",
+            "RegionName": "Europe (Frankfurt)",
+            "TechnicalKey": "cf-eu11",
+            "TechnicalKeyofIaaSProvider": "eu-central-1",
+            "APIEndpoint": "api.cf.eu11.hana.ondemand.com",
+            "Domain": "eu11.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Amazon Web Services",
+            "Region": "us10",
+            "RegionName": "US East (VA)",
+            "TechnicalKey": "cf-us10",
+            "TechnicalKeyofIaaSProvider": "us-east-1",
+            "APIEndpoint": "cf-us10:\n              api.cf.us10.hana.ondemand.com\n              cf-us10-001:\n              api.cf.us10-001.hana.ondemand.com\n              cf-us10-002:\n              api.cf.us10-002.hana.ondemand.com",
+            "Domain": "cf-us10:\n              us10.hana.ondemand.com\n              cf-us10-001:\n              us10-001.hana.ondemand.com\n              cf-us10-002:\n              us10-002.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Google Cloud",
+            "Region": "us30",
+            "RegionName": "US Central (IA)",
+            "TechnicalKey": "cf-us30",
+            "TechnicalKeyofIaaSProvider": "us-central1",
+            "APIEndpoint": "api.cf.us30.hana.ondemand.com",
+            "Domain": "us30.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Google Cloud",
+            "Region": "eu30",
+            "RegionName": "Europe (Frankfurt)",
+            "TechnicalKey": "cf-eu30",
+            "TechnicalKeyofIaaSProvider": "europe-west3",
+            "APIEndpoint": "api.cf.eu30.hana.ondemand.com",
+            "Domain": "eu30.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Google Cloud",
+            "Region": "in30",
+            "RegionName": "India (Mumbai)",
+            "TechnicalKey": "cf-in30",
+            "TechnicalKeyofIaaSProvider": "asia-south1",
+            "APIEndpoint": "api.cf.in30.hana.ondemand.com",
+            "Domain": "in30.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Google Cloud",
+            "Region": "il30",
+            "RegionName": "Israel (Tel Aviv)",
+            "TechnicalKey": "cf-il30",
+            "TechnicalKeyofIaaSProvider": "me-west1",
+            "APIEndpoint": "api.cf.il30.hana.ondemand.com",
+            "Domain": "il30.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Google Cloud",
+            "Region": "sa30",
+            "RegionName": "KSA (Dammam)",
+            "TechnicalKey": "cf-sa30",
+            "TechnicalKeyofIaaSProvider": "me-central2",
+            "APIEndpoint": "api.cf.sa30.hana.ondemand.com",
+            "Domain": "sa30.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Google Cloud",
+            "Region": "ap30",
+            "RegionName": "Australia (Sydney)",
+            "TechnicalKey": "cf-ap30",
+            "TechnicalKeyofIaaSProvider": "australia-southeast1",
+            "APIEndpoint": "api.cf.ap30.hana.ondemand.com",
+            "Domain": "ap30.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "eu20",
+            "RegionName": "Europe (Netherlands)",
+            "TechnicalKey": "cf-eu20",
+            "TechnicalKeyofIaaSProvider": "West Europe",
+            "APIEndpoint": "cf-eu20:\n              api.cf.eu20.hana.ondemand.com\n              cf-eu20-001:\n              api.cf.eu20-001.hana.ondemand.com",
+            "Domain": "cf-eu20:\n              eu20.hana.ondemand.com\n              cf-eu20-001:\n              eu20-001.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "ap20",
+            "RegionName": "Australia (Sydney)",
+            "TechnicalKey": "cf-ap20",
+            "TechnicalKeyofIaaSProvider": "Australia East",
+            "APIEndpoint": "api.cf.ap20.hana.ondemand.com",
+            "Domain": "ap20.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "ap21",
+            "RegionName": "Singapore",
+            "TechnicalKey": "cf-ap21",
+            "TechnicalKeyofIaaSProvider": "Southeast Asia",
+            "APIEndpoint": "api.cf.ap21.hana.ondemand.com",
+            "Domain": "ap21.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "br20",
+            "RegionName": "Brazil (São Paulo)",
+            "TechnicalKey": "cf-br20",
+            "TechnicalKeyofIaaSProvider": "Brazil South",
+            "APIEndpoint": "api.cf.br20.hana.ondemand.com",
+            "Domain": "br20.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "us20",
+            "RegionName": "US West (WA)",
+            "TechnicalKey": "cf-us20",
+            "TechnicalKeyofIaaSProvider": "West US 2",
+            "APIEndpoint": "api.cf.us20.hana.ondemand.com",
+            "Domain": "us20.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "jp20",
+            "RegionName": "Japan (Tokyo)",
+            "TechnicalKey": "cf-jp20",
+            "TechnicalKeyofIaaSProvider": "Japan East",
+            "APIEndpoint": "api.cf.jp20.hana.ondemand.com",
+            "Domain": "jp20.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "us21",
+            "RegionName": "US East (VA)",
+            "TechnicalKey": "cf-us21",
+            "TechnicalKeyofIaaSProvider": "East US",
+            "APIEndpoint": "api.cf.us21.hana.ondemand.com",
+            "Domain": "us21.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        },
+        {
+            "IaaSProvider": "Microsoft Azure",
+            "Region": "ch20",
+            "RegionName": "Switzerland (Zurich)",
+            "TechnicalKey": "cf-ch20",
+            "TechnicalKeyofIaaSProvider": "Switzerland North",
+            "APIEndpoint": "api.cf.ch20.hana.ondemand.com",
+            "Domain": "ch20.hana.ondemand.com",
+            "CockpitLogon": "Open Cockpit"
+        }
+    ]
+}

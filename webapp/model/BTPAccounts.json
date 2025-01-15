@@ -1,0 +1,129 @@
+{
+	"accounts": [
+		{
+			"dir": "Applications",
+			"desc": "Application development landscape directory",
+			"lebels": "",
+			"subaccounts": [
+				{
+					"name": "Apps-DEV",
+					"Region": "us10",
+					"Description": "Dev environment for app development",
+					"subdomain": ""
+				},
+				{
+					"name": "Apps-QAS",
+					"Region": "us10",
+					"Description": "QA environment for app testing.",
+					"subdomain": ""
+				},
+				{
+					"name": "Apps-PRD",
+					"Region": "us10",
+					"Description": "Prod environment for live apps.",
+					"subdomain": ""
+				}
+			]
+		},
+		{
+			"dir": "Integrations",
+			"desc": "Application development landscape directory",
+			"lebels": "",
+			"subaccounts": [
+				{
+					"name": "Integration-DEV",
+					"Region": "us10",
+					"Description": "Integration dev environment for feature testing.",
+					"subdomain": ""
+				},
+				{
+					"name": "Integration-QAS",
+					"Region": "us10",
+					"Description": "Integration QA environment for validating features.",
+					"subdomain": ""
+				},
+				{
+					"name": "Integration-PRD",
+					"Region": "us10",
+					"Description": "Integration prod environment for live system operations.",
+					"subdomain": ""
+				}
+			]
+		},
+		{
+			"dir": "Automations",
+			"desc": "Application development landscape directory",
+			"lebels": "",
+			"subaccounts": [
+				{
+					"name": "Automation-DEV",
+					"Region": "us10",
+					"Description": "Automation dev environment for feature development.",
+					"subdomain": ""
+				},
+				{
+					"name": "Automation-QAS",
+					"Region": "us10",
+					"Description": "Automation QA environment for testing and validation.",
+					"subdomain": ""
+				},
+				{
+					"name": "Automation-PRD",
+					"Region": "us10",
+					"Description": "Automation prod environment for live automation tasks.",
+					"subdomain": ""
+				}
+			]
+		},
+		{
+			"dir": "Data & Analytics",
+			"desc": "Application development landscape directory",
+			"lebels": "",
+			"subaccounts": [
+				{
+					"name": "Data-DEV",
+					"Region": "us10",
+					"Description": "Data dev environment for development and testing.",
+					"subdomain": ""
+				},
+				{
+					"name": "Data-QAS",
+					"Region": "us10",
+					"Description": "Data QA environment for testing and validation.",
+					"subdomain": ""
+				},
+				{
+					"name": "Data-PRD",
+					"Region": "us10",
+					"Description": "Data prod environment for live data operations.",
+					"subdomain": ""
+				}
+			]
+		},
+		{
+			"dir": "AI",
+			"desc": "Application development landscape directory",
+			"lebels": "",
+			"subaccounts": [
+				{
+					"name": "AI-DEV",
+					"Region": "us10",
+					"Description": "AI dev environment for model development and testing.",
+					"subdomain": ""
+				},
+				{
+					"name": "AI-QAS",
+					"Region": "us10",
+					"Description": "AI QA environment for model validation and quality assurance.",
+					"subdomain": ""
+				},
+				{
+					"name": "AI-PRD",
+					"Region": "us10",
+					"Description": "AI prod environment for deploying live AI models.",
+					"subdomain": ""
+				}
+			]
+		}
+	]
+}
