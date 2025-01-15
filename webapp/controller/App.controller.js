@@ -7,6 +7,7 @@ sap.ui.define(
   
       return BaseController.extend("com.hcl.accountsoperations.controller.App", {
         onInit: function() {
+          //This is a sample comment
         }
       });
     }
